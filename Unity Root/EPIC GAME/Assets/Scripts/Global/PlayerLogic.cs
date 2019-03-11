@@ -28,6 +28,7 @@ public class PlayerLogic : MonoBehaviour
             {
                 swordState = 1;
                 Debug.Log("Drawn Sword");
+                bowState = 0;
                 //play sward drawing animation
             }
             else if (swordState == 1)
