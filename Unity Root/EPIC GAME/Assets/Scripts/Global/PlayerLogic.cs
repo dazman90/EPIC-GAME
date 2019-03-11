@@ -26,16 +26,15 @@ public class PlayerLogic : MonoBehaviour
         {
             if (swordState == 0)
             {
+                //play sword drawing animation
                 swordState = 1;
-                Debug.Log("Drawn Sword");
                 bowState = 0;
-                //play sward drawing animation
+                Debug.Log("Drawn Sword");
             }
             else if (swordState == 1)
             {
                 swordState = 2;
                 Debug.Log("Sword is swinging");
-                //play sword swinging animation
                 swordState = 1;
             }
         }
@@ -57,6 +56,13 @@ public class PlayerLogic : MonoBehaviour
             {
                 Debug.Log("Bow is already firing or someone be haxing");
             }
+            Debug.Log("finished bow logic");
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            swordState = 0;
+            bowState = 0;
         }
     }
     IEnumerator FireBow()
