@@ -1,13 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
+
+[RequireComponent(typeof(Animator))]
 
 public class PlayerLogic : MonoBehaviour
 {
+    Animator anim;
+    public float animTuning = 0f;
     public float buttonThreshold = 0.5f;
     private int bowState = 0;
     private int swordState = 0;
+    public float bowFiringAnimationLength;
 
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -36,24 +47,21 @@ public class PlayerLogic : MonoBehaviour
                 bowState = 1;
                 //play bow drawing animation
             }
-            if (bowState != 1 || bowState != 0)
+            else if(bowState == 1)
             {
-                Debug.Log("Bow is already firing or someone be haxing");
-            }
-            StartCoroutine(BowFireCheck());
-        }
-        
-        IEnumerator BowFireCheck()
-        {
-            if (bowState == 1)
-            {
-            
+                anim.Play("testBowShot");
+                StartCoroutine("FireBow");
             }
             else
             {
-                yield return (false);
+                Debug.Log("Bow is already firing or someone be haxing");
             }
         }
     }
-
+    IEnumerator FireBow()
+    {
+        Debug.Log("Firing Bow");
+        yield return new WaitForSeconds(bowFiringAnimationLength);
+        Debug.Log("Just Fired Bow");
+    }
 }
