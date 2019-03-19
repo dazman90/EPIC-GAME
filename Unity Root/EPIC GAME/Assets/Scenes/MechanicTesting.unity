@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 549470227}
   - component: {fileID: 549470228}
   - component: {fileID: 549470229}
+  - component: {fileID: 549470230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,14 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b396c12f743be4abd1550aa50710bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 425933389}
-  distance: 5
-  xSpeed: 120
-  ySpeed: 120
-  yMinLimit: -20
-  yMaxLimit: 80
-  distanceMin: 0.5
-  distanceMax: 15
+  offset: {x: 0, y: 0, z: 0}
+  cameraControllEnabeled: 1
 --- !u!114 &549470228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,8 +231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 581993577}
-  smoothness: 0
-  speed: 0
+  smoothness: 0.1
+  speed: 1
   targetObject: {fileID: 0}
 --- !u!114 &549470229
 MonoBehaviour:
@@ -251,6 +246,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d322675262612254f869b782436e7f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &549470230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549470223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d316dd5604c60f41803c499c57f9086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 425933389}
+  distance: 5
+  xSpeed: 120
+  ySpeed: 120
+  yMinLimit: -20
+  yMaxLimit: 80
+  distanceMin: 0.5
+  distanceMax: 15
 --- !u!1 &570285486
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,5 +642,10 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 549470226}
+    - target: {fileID: 6360287346630690515, guid: 42b94a8e7cbc50642a7f20bd2ce23ea6,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 549470225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42b94a8e7cbc50642a7f20bd2ce23ea6, type: 3}

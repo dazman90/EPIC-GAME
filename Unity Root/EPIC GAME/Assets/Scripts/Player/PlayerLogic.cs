@@ -5,6 +5,8 @@
 
 public class PlayerLogic : MonoBehaviour
 {
+    #region declare variables
+    public Camera cam;
     Animator anim;
     public float animTuning = 0f;
     public float buttonThreshold = 0.5f;
@@ -13,7 +15,7 @@ public class PlayerLogic : MonoBehaviour
     public float bowFiringAnimationLength;
     public GameObject focus = null;
     bool hasFocused = false;
-
+    #endregion declare variables
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region sword
         if (Input.GetMouseButtonDown(0))
         {
             if (swordState == 0)
@@ -39,7 +42,8 @@ public class PlayerLogic : MonoBehaviour
                 swordState = 1;
             }
         }
-
+        #endregion sword
+        #region bow
         if (Input.GetMouseButtonDown(1))
         {
             if (bowState == 0)
@@ -59,7 +63,8 @@ public class PlayerLogic : MonoBehaviour
             }
             Debug.Log("finished bow logic");
         }
-
+        #endregion bow
+        #region focus
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             swordState = 0;
@@ -69,8 +74,12 @@ public class PlayerLogic : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             NewFocus();
+            FocusNow();
         }
-
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            RemoveFocus();
+        }
         if (focus != null && !hasFocused)
         {
             Debug.Log("we focused on " + focus.name);
@@ -78,6 +87,7 @@ public class PlayerLogic : MonoBehaviour
         }
         else if (focus != null && hasFocused)
             Debug.Log("already focused on " + focus.name);
+        #endregion focus
     }
     /*
     IEnumerator FireBow()
@@ -96,7 +106,9 @@ public class PlayerLogic : MonoBehaviour
 
     void FocusNow()
     {
-
+        SmoothLookAt smoothLook = cam.GetComponent<SmoothLookAt>();
+        smoothLook.enabled = true;
+        smoothLook.SetTarget(cam, focus);
     }
 
     public void RemoveFocus()

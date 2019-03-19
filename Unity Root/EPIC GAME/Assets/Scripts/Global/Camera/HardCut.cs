@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HardCut : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Cut(Camera cam,GameObject target, Vector3 offset)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        transform.position = target.transform.position - offset;
+        transform.LookAt(target.transform.position);
     }
 }
