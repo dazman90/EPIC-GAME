@@ -88,10 +88,10 @@ GameObject:
   - component: {fileID: 6360287346630690513}
   - component: {fileID: 6360287346630690514}
   - component: {fileID: 6360287346630690515}
+  - component: {fileID: 8950158888238450877}
   - component: {fileID: 6360287346630690508}
   - component: {fileID: 6360287346630690509}
   - component: {fileID: 425933388}
-  - component: {fileID: 425933394}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -144,6 +144,19 @@ MonoBehaviour:
   animTuning: 0
   buttonThreshold: 0.5
   bowFiringAnimationLength: 0.5
+  Focus: {fileID: 0}
+--- !u!114 &8950158888238450877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360287346630690519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0745c22c7cbaa8479806e2b8f4d151b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &6360287346630690508
 Animator:
   serializedVersion: 3
@@ -177,7 +190,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!64 &425933388
 MeshCollider:
@@ -193,20 +206,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1818360609 &425933394
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6360287346630690519}
-  m_Enabled: 1
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 0
-  m_AffectRotationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources: []

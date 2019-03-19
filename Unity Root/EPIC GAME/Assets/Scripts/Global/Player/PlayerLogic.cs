@@ -13,12 +13,14 @@ public class PlayerLogic : MonoBehaviour
     private int bowState = 0;
     private int swordState = 0;
     public float bowFiringAnimationLength;
-    public GameObject FacePos;
+    public GameObject Focus = null;
+    Component Find;
 
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        Find = GetComponent<FindClosest>();
     }
     // Update is called once per frame
     void Update()
@@ -66,11 +68,30 @@ public class PlayerLogic : MonoBehaviour
             bowState = 0;
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            NewFocus();
+        }
     }
+    /*
     IEnumerator FireBow()
     {
         Debug.Log("Firing Bow");
         yield return new WaitForSeconds(bowFiringAnimationLength);
         Debug.Log("Just Fired Bow");
     }
+    */
+
+    public void NewFocus()
+    {
+        FindClosestObject("Interactable");
+    }
+
+    public void RemoveFocus()
+    {
+        Focus = null;
+    }
+
+
+
 }
