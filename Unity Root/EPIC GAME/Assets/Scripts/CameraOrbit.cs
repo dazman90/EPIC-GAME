@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CameraOrbit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform Target;
+    public float Speed = 1f;
 
-    // Update is called once per frame
-    void Update()
+
+
+    void FixedUpdate()
     {
-        
+        transform.LookAt(Target.position);
+        transform.Translate(Vector3.right * Time.fixedDeltaTime * Speed);
     }
 }
