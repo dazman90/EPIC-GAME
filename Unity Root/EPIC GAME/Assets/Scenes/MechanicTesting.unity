@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 1384973179}
   m_Layer: 0
   m_Name: OwO whats this
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -576,16 +576,5 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 549470226}
-    - target: {fileID: 6360287346630690515, guid: 42b94a8e7cbc50642a7f20bd2ce23ea6,
-        type: 3}
-      propertyPath: FacePos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6360287346630690509, guid: 42b94a8e7cbc50642a7f20bd2ce23ea6,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 425933394, guid: 42b94a8e7cbc50642a7f20bd2ce23ea6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42b94a8e7cbc50642a7f20bd2ce23ea6, type: 3}

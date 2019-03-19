@@ -13,14 +13,14 @@ public class PlayerLogic : MonoBehaviour
     private int bowState = 0;
     private int swordState = 0;
     public float bowFiringAnimationLength;
-    public GameObject Focus = null;
-    Component Find;
+    public GameObject focus = null;
+    bool hasFocused = false;
 
 
     void Start()
     {
+        Cursor.visible = false;
         anim = GetComponent<Animator>();
-        Find = GetComponent<FindClosest>();
     }
     // Update is called once per frame
     void Update()
@@ -72,6 +72,14 @@ public class PlayerLogic : MonoBehaviour
         {
             NewFocus();
         }
+
+        if (focus != null && !hasFocused)
+        {
+            Debug.Log("we focused on " + focus.name);
+            hasFocused = true;
+        }
+        else if (focus != null && hasFocused)
+            Debug.Log("already focused on " + focus.name);
     }
     /*
     IEnumerator FireBow()
@@ -84,12 +92,19 @@ public class PlayerLogic : MonoBehaviour
 
     public void NewFocus()
     {
-        FindClosestObject("Interactable");
+        hasFocused = false;
+        focus = gameObject.GetComponent<FindClosest>().FindClosestObject("Interactable");
+    }
+
+    void FocusNow()
+    {
+
     }
 
     public void RemoveFocus()
     {
-        Focus = null;
+        focus = null;
+        hasFocused = false;
     }
 
 

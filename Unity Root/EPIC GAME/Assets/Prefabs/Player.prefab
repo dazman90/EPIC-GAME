@@ -88,13 +88,13 @@ GameObject:
   - component: {fileID: 6360287346630690513}
   - component: {fileID: 6360287346630690514}
   - component: {fileID: 6360287346630690515}
-  - component: {fileID: 8950158888238450877}
   - component: {fileID: 6360287346630690508}
   - component: {fileID: 6360287346630690509}
   - component: {fileID: 425933388}
+  - component: {fileID: 581993578}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,19 +144,7 @@ MonoBehaviour:
   animTuning: 0
   buttonThreshold: 0.5
   bowFiringAnimationLength: 0.5
-  Focus: {fileID: 0}
---- !u!114 &8950158888238450877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6360287346630690519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0745c22c7cbaa8479806e2b8f4d151b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
 --- !u!95 &6360287346630690508
 Animator:
   serializedVersion: 3
@@ -206,3 +194,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &581993578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360287346630690519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e393a4edc5327f4f9a9c6e85003dd6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
