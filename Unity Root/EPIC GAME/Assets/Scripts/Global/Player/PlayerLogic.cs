@@ -13,6 +13,7 @@ public class PlayerLogic : MonoBehaviour
     private int bowState = 0;
     private int swordState = 0;
     public float bowFiringAnimationLength;
+    public GameObject FacePos;
 
 
     void Start()
@@ -64,6 +65,7 @@ public class PlayerLogic : MonoBehaviour
             swordState = 0;
             bowState = 0;
         }
+
     }
     IEnumerator FireBow()
     {

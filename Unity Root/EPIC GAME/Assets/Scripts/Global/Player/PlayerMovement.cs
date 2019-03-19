@@ -25,6 +25,19 @@ public class PlayerMovement : MonoBehaviour
         CamR.y = 0f;
         CamF = CamF.normalized;
         CamR = CamR.normalized;
+        /*
+        if (Input.GetKeyDown(KeyCode.D))
+            transform.Rotate(Vector3.right);
+        
+        else if (Input.GetKeyDown(KeyCode.A))
+            transform.Rotate(Vector3.left);
+
+        if (Input.GetKeyDown(KeyCode.W))
+            transform.Rotate(Vector3.forward);
+
+        else if (Input.GetKeyDown(KeyCode.S))
+            transform.Rotate(Vector3.back);
+        */
         transform.position += (CamR * Input.GetAxisRaw("Horizontal") *Time.deltaTime * CurrentSpeed + (CamF * Input.GetAxisRaw("Vertical")) * Time.deltaTime * CurrentSpeed);
     }
 
