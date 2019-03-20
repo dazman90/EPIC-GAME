@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FolowPlayer : MonoBehaviour
+public class CameraControll : MonoBehaviour
 {
     public Transform target;
     public float distance = 5.0f;
@@ -15,12 +15,13 @@ public class FolowPlayer : MonoBehaviour
     public float distanceMin = .5f;
     public float distanceMax = 15f;
 
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
     float x = 0.0f;
     float y = 0.0f;
 
-    // Use this for initialization
+
+
     void Start()
     {
         Vector3 angles = transform.eulerAngles;
@@ -36,10 +37,8 @@ public class FolowPlayer : MonoBehaviour
         }
     }
 
-    void LateUpdate()
+    public void Controll()
     {
-        if (target)
-        {
             x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
@@ -59,7 +58,6 @@ public class FolowPlayer : MonoBehaviour
 
             transform.rotation = rotation;
             transform.position = position;
-        }
     }
 
     public static float ClampAngle(float angle, float min, float max)
@@ -70,4 +68,5 @@ public class FolowPlayer : MonoBehaviour
             angle -= 360F;
         return Mathf.Clamp(angle, min, max);
     }
+
 }
