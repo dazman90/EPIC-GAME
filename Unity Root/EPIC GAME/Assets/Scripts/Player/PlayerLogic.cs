@@ -2,7 +2,7 @@
 
 
 [RequireComponent(typeof(Animator))]
-
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerLogic : MonoBehaviour
 {
     #region declare variables
@@ -17,6 +17,7 @@ public class PlayerLogic : MonoBehaviour
     SmoothLookAt smoothLook;
     FolowPlayer folowPlayer;
     CameraControll CameraControll;
+    PlayerMovement playerMovement;
     #endregion declare variables
 
     void Start()
@@ -26,6 +27,7 @@ public class PlayerLogic : MonoBehaviour
         smoothLook = cam.GetComponent<SmoothLookAt>();
         folowPlayer = cam.GetComponent<FolowPlayer>();
         CameraControll = cam.GetComponent<CameraControll>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
     // Update is called once per frame
     void Update()
@@ -104,6 +106,7 @@ public class PlayerLogic : MonoBehaviour
     void FocusNow()
     {
         Debug.Log("focusing on " + focus.name);
+        playerMovement.FaceTarget(focus.transform);
         smoothLook.enabled = true;
         smoothLook.SetTarget(cam, focus);
     }

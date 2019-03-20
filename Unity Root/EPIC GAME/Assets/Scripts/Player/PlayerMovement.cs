@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float RunSpeed;
     float CurrentSpeed;
     public Transform Camera;
+    public float rotationSpeed = 5f;
 
     void Update()
     {
@@ -42,6 +43,13 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         
+    }
+
+    public void FaceTarget(Transform target)
+    {
+        Vector3 direvtion = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(target.position.x, 0f, target.position.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 
 
