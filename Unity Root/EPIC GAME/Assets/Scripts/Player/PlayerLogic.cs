@@ -14,13 +14,18 @@ public class PlayerLogic : MonoBehaviour
     private int swordState = 0;
     public float bowFiringAnimationLength;
     public GameObject focus = null;
-    bool hasFocused = false;
+    SmoothLookAt smoothLook;
+    FolowPlayer folowPlayer;
+    CameraControll CameraControll;
     #endregion declare variables
 
     void Start()
     {
         Cursor.visible = false;
         anim = GetComponent<Animator>();
+        smoothLook = cam.GetComponent<SmoothLookAt>();
+        folowPlayer = cam.GetComponent<FolowPlayer>();
+        CameraControll = cam.GetComponent<CameraControll>();
     }
     // Update is called once per frame
     void Update()
@@ -80,13 +85,6 @@ public class PlayerLogic : MonoBehaviour
         {
             RemoveFocus();
         }
-        if (focus != null && !hasFocused)
-        {
-            Debug.Log("we focused on " + focus.name);
-            hasFocused = true;
-        }
-        else if (focus != null && hasFocused)
-            Debug.Log("already focused on " + focus.name);
         #endregion focus
     }
     /*
@@ -100,21 +98,24 @@ public class PlayerLogic : MonoBehaviour
 
     public void NewFocus()
     {
-        hasFocused = false;
         focus = gameObject.GetComponent<FindClosest>().FindClosestObject("Interactable");
     }
 
     void FocusNow()
     {
-        SmoothLookAt smoothLook = cam.GetComponent<SmoothLookAt>();
+        Debug.Log("focusing on " + focus.name);
         smoothLook.enabled = true;
         smoothLook.SetTarget(cam, focus);
     }
 
     public void RemoveFocus()
     {
+        Debug.Log("removing focus");
+        smoothLook.SetTarget(cam, null);
+        smoothLook.enabled = false;
         focus = null;
-        hasFocused = false;
+        folowPlayer.cameraControllEnabeled = true;
+        
     }
 
 
