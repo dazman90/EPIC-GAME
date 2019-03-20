@@ -3,6 +3,7 @@
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(FindClosest))]
 public class PlayerLogic : MonoBehaviour
 {
     #region declare variables
@@ -18,6 +19,7 @@ public class PlayerLogic : MonoBehaviour
     FolowPlayer folowPlayer;
     CameraControll CameraControll;
     PlayerMovement playerMovement;
+    FindClosest FindClosest;
     #endregion declare variables
 
     void Start()
@@ -28,6 +30,7 @@ public class PlayerLogic : MonoBehaviour
         folowPlayer = cam.GetComponent<FolowPlayer>();
         CameraControll = cam.GetComponent<CameraControll>();
         playerMovement = GetComponent<PlayerMovement>();
+        FindClosest = GetComponent<FindClosest>();
     }
 
     void FixedUpdate()
@@ -93,6 +96,13 @@ public class PlayerLogic : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             RemoveFocus();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject closestInteractable = FindClosest.FindClosestObject("Interactable");
+            Interactable interactableToInteractWith = closestInteractable.GetComponent<Interactable>();
+            //interactableToInteractWith.OnInteractionEntry();
         }
 
 
