@@ -29,6 +29,13 @@ public class PlayerLogic : MonoBehaviour
         CameraControll = cam.GetComponent<CameraControll>();
         playerMovement = GetComponent<PlayerMovement>();
     }
+
+    void FixedUpdate()
+    {
+        if (focus != null)
+            playerMovement.FaceTarget(focus.transform);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -87,6 +94,8 @@ public class PlayerLogic : MonoBehaviour
         {
             RemoveFocus();
         }
+
+
         #endregion focus
     }
     /*
@@ -106,7 +115,6 @@ public class PlayerLogic : MonoBehaviour
     void FocusNow()
     {
         Debug.Log("focusing on " + focus.name);
-        playerMovement.FaceTarget(focus.transform);
         smoothLook.enabled = true;
         smoothLook.SetTarget(cam, focus);
     }
