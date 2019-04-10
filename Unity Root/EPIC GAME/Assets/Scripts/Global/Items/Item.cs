@@ -7,4 +7,6 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public int type;
+    public string name;
+    public string description;
 }
